@@ -1,15 +1,40 @@
 angular
-  .module('finalProject')
+  .module('physicsWars')
   .controller('MainCtrl', MainCtrl);
 
-MainCtrl.$inject = ['$http', 'API_URL'];
-function MainCtrl($http, API_URL) {
+MainCtrl.$inject = ['$http', 'API_URL', '$rootScope', '$state', '$auth', '$transitions'];
+function MainCtrl($http, API_URL, $rootScope, $state, $auth, $transitions) {
   const vm = this;
 
-  $http({
-    method: 'GET',
-    url: `${API_URL}/users`
-  })
-  .then((res) => vm.users = res.data);
-  
+  vm.isAuthenticated = $auth.isAuthenticated;
+
+  $rootScope.$on('error', (e, err) => {
+    vm.message = err.data.errors.join('; ');
+    if(err.status === 401 && vm.pageName !== 'login') {
+      vm.stateHasChanged = false;
+      $state.go('login');
+    }
+  });
+
+  // const protectedStates = ['eventsNew', 'eventsEdit'];
+  // pages people are not allowed to access unless they are logged in.
+
+  $transitions.onSuccess({}, (transition) => {
+    if((!$auth.isAuthenticated() && protectedStates.includes(transition.$to().name))) {
+      vm.message = 'You must be logged in to access this page.';
+      return $state.go('login');
+    }
+
+    if(vm.stateHasChanged) vm.message = null;
+    if(!vm.stateHasChanged) vm.stateHasChanged = true;
+    if($auth.getPayload()) vm.currentUser = $auth.getPayload();
+    vm.pageName = transition.$to().name;
+  });
+
+  function logout() {
+    $auth.logout();
+    $state.go('home');
+  }
+
+  vm.logout = logout;
 }

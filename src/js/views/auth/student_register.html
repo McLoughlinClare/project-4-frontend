@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<div class="row">
+  <div class="col-md-6">
+    <form ng-submit="auth.register()">
+      <div>
+        <label>Email</label>
+        <input type="text" ng-model="auth.student.email">
+      </div>
+
+      <div>
+        <label>First Name</label>
+        <input type="text" ng-model="auth.student.first-name">
+      </div>
+
+      <div>
+        <label>Last Name</label>
+        <input type="text" ng-model="auth.student.last-name">
+      </div>
+
+      <div>
+        <label>School</label>
+        <input type="text" ng-model="auth.school.name">
+      </div>
+
+
+      <div>
+        <label>Password</label>
+        <input type="password" ng-model="auth.user.password">
+      </div>
+
+      <div>
+        <label>Password Confirmation</label>
+        <input type="password" ng-model="auth.user.password_confirmation">
+      </div>
+
+      <button>Register</button>
+    </form>
+  </div>
+</div>
