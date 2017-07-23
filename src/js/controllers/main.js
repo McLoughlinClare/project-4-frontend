@@ -2,10 +2,9 @@ angular
   .module('physicsWars')
   .controller('MainCtrl', MainCtrl);
 
-MainCtrl.$inject = ['$http', 'API_URL', '$rootScope', '$state', '$auth', '$transitions'];
-function MainCtrl($http, API_URL, $rootScope, $state, $auth, $transitions) {
+MainCtrl.$inject = ['$rootScope', '$state', '$auth', '$transitions'];
+function MainCtrl($rootScope, $state, $auth, $transitions) {
   const vm = this;
-
   vm.isAuthenticated = $auth.isAuthenticated;
 
   $rootScope.$on('error', (e, err) => {
