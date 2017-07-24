@@ -1,3 +1,37 @@
 <!DOCTYPE html>
 
 <h1>teacher register</h1>
+
+<div class="row">
+  <div class="col-md-6">
+    <form ng-submit="teacherauth.register()">
+      <div>
+        <label>Email</label>
+        <input type="text" ng-model="teacherauth.teacher.email">
+      </div>
+
+      <div>
+        <label>First Name <i>Please use your professional name.</i></label>
+        <input type="text" ng-model="teacherauth.teacher.name">
+      </div>
+
+      <div>
+        <label>School</label>
+        <input type="number" ng-model="teacherauth.teacher.school_id">
+      </div>
+
+
+      <div>
+        <label>Password</label>
+        <input type="password" ng-model="teacherauth.teacher.password">
+      </div>
+
+      <div>
+        <label>Password Confirmation</label>
+        <input type="password" ng-model="teacherauth.teacher.password_confirmation">
+      </div>
+
+      <button>Register</button>
+    </form>
+  </div>
+</div>

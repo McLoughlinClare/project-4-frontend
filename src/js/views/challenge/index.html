@@ -1,3 +1,11 @@
 <!DOCTYPE html>
 
 <h1>challenge index</h1>
+
+{{ challengesIndex.all }}
+
+<ul>
+  <li ng-repeat="challenge in challengesIndex.all">
+    <p><em>{{ challenge.topic.name}}</em></p>
+  </li>
+</ul>

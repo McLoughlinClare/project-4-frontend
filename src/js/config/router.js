@@ -9,7 +9,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
     .state('home', {
       url: '/',
-      templateUrl: 'index.html'
+      templateUrl: 'js/views/statics/home.html'
     })
     .state('studentProfile', {
       url: '/student/:id',
@@ -47,24 +47,24 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'SolutionsNewCtrl as solutionsNew'
     })
       .state('challengeIndex', {
-        url: '/challenge',
+        url: '/challenges',
         templateUrl: 'js/views/challenge/index.html',
-        controller: 'ChallengeIndexCtrl as challengeIndex'
+        controller: 'ChallengesIndexCtrl as challengesIndex'
       })
       .state('challengeNew', {
-        url: '/challenge/new',
+        url: '/challenges/new',
         templateUrl: 'js/views/challenge/new.html',
-        controller: 'ChallengeNewCtrl as challengeNew'
+        controller: 'ChallengesNewCtrl as challengesNew'
       })
       .state('challengeShow', {
-        url: '/challenge/:id',
+        url: '/challenges/:id',
         templateUrl: 'js/views/challenge/show.html',
-        controller: 'ChallengeShowCtrl as challengeShow'
+        controller: 'ChallengesShowCtrl as challengesShow'
       })
       .state('challengeEdit', {
-        url: '/challenge/:id/edit',
+        url: '/challenges/:id/edit',
         templateUrl: 'js/views/challenge/edit.html',
-        controller: 'ChallengeEditCtrl as challengeEdit'
+        controller: 'ChallengesEditCtrl as challengesEdit'
       })
     .state('login', {
       url: '/login',

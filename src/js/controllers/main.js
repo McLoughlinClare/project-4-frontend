@@ -15,8 +15,8 @@ function MainCtrl($rootScope, $state, $auth, $transitions) {
     }
   });
 
-  // const protectedStates = ['eventsNew', 'eventsEdit'];
-  // pages people are not allowed to access unless they are logged in.
+  const protectedStates = ['challengeIndex'];
+
 
   $transitions.onSuccess({}, (transition) => {
     if((!$auth.isAuthenticated() && protectedStates.includes(transition.$to().name))) {
