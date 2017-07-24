@@ -6,6 +6,9 @@
 
 <ul>
   <li ng-repeat="challenge in challengesIndex.all">
+    <a ui-sref="topicShow">
     <p><em>{{ challenge.topic.name}}</em></p>
+    <img ng-src="http://localhost:3000/assets/{{ challenge.topic.icon }}" alt="">
+  </a>
   </li>
 </ul>

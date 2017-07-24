@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<h1>topic index</h1>
+{{ topicsIndex.all }}
+
+<ul>
+  <li ng-repeat="topic in topicsIndex.all">
+    <a ui-sref="topicsShow({id: topic.id})">
+    <p><em>{{ topic.name}}</em></p>
+    <img ng-src="http://localhost:3000/assets/{{ topic.icon }}" alt="">
+  </a>
+  </li>
+</ul>

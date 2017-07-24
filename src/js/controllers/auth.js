@@ -6,6 +6,10 @@ angular
 AuthCtrl.$inject = ['$auth', '$state'];
 function AuthCtrl($auth, $state) {
   const vm = this;
+  vm.student = {};
+  vm.credentials = {};
+  vm.student.role = 'student';
+  vm.credentials.role = 'student';
 
   function register() {
     $auth.signup(vm.student)
@@ -25,6 +29,10 @@ function AuthCtrl($auth, $state) {
 TeacherAuthCtrl.$inject = ['$auth', '$state'];
 function TeacherAuthCtrl($auth, $state) {
   const vm = this;
+  vm.teacher = {};
+  vm.teacher.role = 'teacher';
+  vm.credentials = {};
+  vm.credentials.role = 'teacher';
 
   function register() {
     $auth.signup(vm.teacher)

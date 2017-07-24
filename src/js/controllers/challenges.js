@@ -28,13 +28,26 @@ function ChallengesNewCtrl(Challenge, Student, $state) {
   vm.create = challengesCreate;
 }
 
-ChallengesShowCtrl.$inject = ['Challenge', 'Student', '$stateParams', '$state', '$auth'];
-function ChallengesShowCtrl(Challenge, Student,  $stateParams, $state, $auth) {
+ChallengesShowCtrl.$inject = ['Challenge', 'Topic', 'Solution', 'Student', '$stateParams', '$state', '$auth'];
+function ChallengesShowCtrl(Challenge, Topic, Solution, Student, $stateParams, $state, $auth) {
   const vm = this;
+
+  vm.all = Challenge.query();
+  vm.challenge = Challenge.get($stateParams);
+  vm.solution = {
+    challenge_id: $state.params.id
+  };
+
   if ($auth.getPayload()) vm.currentStudent = Student.get({ id: $auth.getPayload().id });
 
-  vm.challenge = Challenge.get($stateParams);
+  function solutionCreate() {
+    Solution
+      .save(vm.solution)
+      .$promise
+      .then(() => $state.go('home'));
+  }
 
+vm.solutionCreated = solutionCreate;
 
   function challengesDelete() {
     vm.challenge

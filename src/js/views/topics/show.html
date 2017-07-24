@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<h1><em>{{ topicsShow.topic.name }}</em></h1>
+
+
+<ul>
+  <li ng-repeat="topic in topicsShow.topic.challenges">
+    <a ui-sref="challengeShow ({id: topic.id})">
+
+      <p><em>{{ topic.question }} </em></p>
+    </a>
+  </li>
+</ul>

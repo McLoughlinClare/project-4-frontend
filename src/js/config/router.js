@@ -66,6 +66,16 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
         templateUrl: 'js/views/challenge/edit.html',
         controller: 'ChallengesEditCtrl as challengesEdit'
       })
+      .state('topicsShow', {
+        url: '/topics/:id',
+        templateUrl: 'js/views/topics/show.html',
+        controller: 'TopicsShowCtrl as topicsShow'
+      })
+      .state('topicIndex', {
+        url: '/topics',
+        templateUrl: 'js/views/topics/index.html',
+        controller: 'TopicsIndexCtrl as topicsIndex'
+      })
     .state('login', {
       url: '/login',
       templateUrl: 'js/views/auth/student_login.html',
