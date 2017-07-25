@@ -15,7 +15,7 @@ function StudentsShowCtrl(Student, Topic, Solution, Teacher, $stateParams, $stat
   .then((student) => {
     vm.student = student;
     numberQuestionsAnswered();
-  })
+  });
 
 //calculating how many questions the student has got correct.
   vm.correctAnswers = [];

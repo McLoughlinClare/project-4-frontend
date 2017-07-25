@@ -9,7 +9,8 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
     .state('home', {
       url: '/',
-      templateUrl: 'js/views/statics/home.html'
+      templateUrl: 'js/views/statics/home.html',
+      controller: 'SchoolsLeagueCtrl as schoolsLeague'
     })
     .state('studentShow', {
       url: '/student/:id',

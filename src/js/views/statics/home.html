@@ -1,2 +1,11 @@
 <!DOCTYPE html>
 <h1>Homepage</h1>
+
+
+<table>
+  <tr ng-repeat="school in schoolsLeague.all | orderBy:school.average_correct">
+    <td>{{ school.name }}</td>
+    <td>{{ school.total_correct_answers}} </td>
+    <td>{{ school.average_correct}}</td>
+  </tr>
+</table>
