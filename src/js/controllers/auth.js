@@ -20,7 +20,7 @@ function AuthCtrl($auth, $state) {
 
   function login() {
     $auth.login(vm.credentials)
-      .then(() => $state.go('challengeIndex'));
+      .then(() => $state.go('topicIndex'));
   }
 
   vm.login = login;

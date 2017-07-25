@@ -1,3 +1,17 @@
 <!DOCTYPE html>
 
 <h1>Student Profile</h1>
+
+
+<h1>{{studentShow.student.first_name}} {{studentShow.student.last_name}}</h1>
+<h4>{{studentShow.student.school.name}}</h4>
+
+<h2>Your Solutions</h2>
+<p> So far you have {{ studentShow.correctAnswers.length }} correct answers </p>
+<table>
+  <tr ng-repeat="solution in studentShow.student.solutions">
+    <td>{{ solution.challenge.question }}</td>
+    <td>{{ solution.answer }}</td>
+    <td>{{ solution.correct}}</td>
+  </tr>
+</table>

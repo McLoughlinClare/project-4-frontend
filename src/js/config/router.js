@@ -11,10 +11,10 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/',
       templateUrl: 'js/views/statics/home.html'
     })
-    .state('studentProfile', {
+    .state('studentShow', {
       url: '/student/:id',
       templateUrl: 'js/views/student/profile.html',
-      controller: 'StudentProfileCtrl as studentProfile'
+      controller: 'StudentsShowCtrl as studentShow'
     })
     .state('studentEdit', {
       url: '/student/:id/edit',
@@ -22,14 +22,14 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'StudentEditCtrl as studentEdit'
     })
   .state('teacherShow', {
-    url: '/teacher/:id',
-    templateUrl: 'js/views/teacher/show.html',
-    controller: 'TeacherShowCtrl as teacherShow'
+    url: '/teachers/:id',
+    templateUrl: 'js/views/teacher/profile.html',
+    controller: 'TeachersShowCtrl as teacherShow'
     })
     .state('teacherEdit', {
-      url: '/teacher/:id/edit',
+      url: '/teachers/:id/edit',
       templateUrl: 'js/views/teacher/edit.html',
-      controller: 'TeacherEditCtrl as teacherEdit'
+      controller: 'TeachersEditCtrl as teacherEdit'
     })
     .state('solutionsShow', {
       url: '/solutions/:id',

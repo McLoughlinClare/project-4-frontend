@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+
+<h1>{{teacherShow.teacher.name}}</h1>
+<h2>{{teacherShow.teacher.school.name}}</h2>
+
+
+
+<h3>Your Students</h3>
+
+
+<ul>
+  <!-- single instance from the array in the actual array -->
+  <!-- inside the loop always print the entire single instance first -->
+  <li ng-repeat="student in teacherShow.teacher.students">
+      <p><em>{{ student.first_name }} {{ student.last_name }}</em></p>
+  </li>
+</ul>
