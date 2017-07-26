@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 
-<h1>Student Profile</h1>
-
-
 <h1>{{studentShow.student.first_name}} {{studentShow.student.last_name}}</h1>
 <h4>{{studentShow.student.school.name}}</h4>
 
@@ -10,8 +7,9 @@
 <p> So far you have {{ studentShow.correctAnswers.length }} correct answers </p>
 <table>
   <tr ng-repeat="solution in studentShow.student.solutions">
-    <td>{{ solution.challenge.question }}</td>
+    <td><a ui-sref="solutionsShow({id: solution.id})">{{ solution.challenge.question }}</a></td>
     <td>{{ solution.answer }}</td>
     <td>{{ solution.correct}}</td>
+    <td>{{ solution.teacher_comment }}</td>
   </tr>
 </table>

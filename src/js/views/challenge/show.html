@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 
-<h1>challenge show</h1>
 
 <h1>{{ challengesShow.challenge.question }}</h1>
 <form ng-submit="challengesShow.solutionCreated()">
+
+<label for="student_comment">Your Workings</label>
+<input type="text" id="workings" name="workings" ng-model="challengesShow.solution.student_comment">
 
 
 <label for="answer">Your Answer</label>

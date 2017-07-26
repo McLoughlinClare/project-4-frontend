@@ -32,14 +32,6 @@ function AuthCtrl(School, $auth, $state) {
 }
 
 
-//a controller to show the schools signed up when a teacher or student is registering.
-// AuthSchoolsCtrl.$inject = ['School'];
-// function AuthSchoolsCtrl(School) {
-//   const vm = this;
-//
-//   vm.all = School.query();
-// }
-
 TeacherAuthCtrl.$inject = ['School','$auth', '$state'];
 function TeacherAuthCtrl(School, $auth, $state) {
   const vm = this;

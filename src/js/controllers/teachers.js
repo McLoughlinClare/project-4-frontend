@@ -1,7 +1,6 @@
 angular
   .module('physicsWars')
   .controller('TeachersIndexCtrl', TeachersIndexCtrl)
-  .controller('TeachersNewCtrl', TeachersNewCtrl)
   .controller('TeachersShowCtrl', TeachersShowCtrl)
   .controller('TeachersEditCtrl', TeachersEditCtrl);
 
@@ -12,31 +11,70 @@ function TeachersIndexCtrl(Teacher) {
   vm.all = Teacher.query();
 }
 
-TeachersNewCtrl.$inject = ['Teacher', 'Student', '$state'];
-function TeachersNewCtrl(Teacher, Student, $state) {
-  const vm = this;
-  vm.teacher = {};
-  vm.users = Student.query();
-
-  function teachersCreate() {
-    Teacher
-      .save(vm.teacher)
-      .$promise
-      .then(() => $state.go('teachersIndex'));
-  }
-
-  vm.create = teachersCreate;
-}
 
 TeachersShowCtrl.$inject = ['Teacher', 'Topic', 'Solution', 'Student', '$stateParams', '$state', '$auth'];
 function TeachersShowCtrl(Teacher, Topic, Solution, Student, $stateParams, $state, $auth) {
   const vm = this;
+
+  vm.showingUnmarked = true;
+
+  function toggleQuestions() {
+    vm.showingUnmarked = !vm.showingUnmarked;
+  }
+
+  function showSolution(solution) {
+    return (vm.showingUnmarked && solution.correct === null) || (!vm.showingUnmarked && solution.correct !== null);
+  }
+
+  vm.showSolution = showSolution;
+  vm.toggleQuestions = toggleQuestions;
 
   vm.all = Teacher.query();
   vm.teacher = Teacher.get($stateParams);
   vm.solution = {
     teacher_id: $state.params.id
   };
+  vm.currentSolution = Solution.query();
+
+function correctMarking(solution) {
+  solution.correct = true;
+  Solution
+  .update({ id: solution.id }, solution)
+  .$promise
+  .then((solution) => {
+  });
+}
+
+function incorrectMarking(solution) {
+  solution.correct = false;
+  Solution
+  .update({ id: solution.id }, solution)
+  .$promise
+  .then((solution) => {
+  });
+}
+
+function addComment(solution) {
+  console.log('commenting', solution);
+  // console.log(solution.id);
+  // console.log(solution.student_comment);
+
+    Solution
+      .update({ id: solution.id }, solution)
+      .$promise
+      .then((solution) => {
+        console.log(solution.teacher_comment);
+      });
+      console.log('teacher commented');
+      console.log(solution.teacher_comment);
+  }
+
+
+
+
+vm.correctMarking = correctMarking;
+vm.incorrectMarking = incorrectMarking;
+vm.addComment = addComment;
 
 
 
@@ -51,19 +89,7 @@ function TeachersShowCtrl(Teacher, Topic, Solution, Student, $stateParams, $stat
 
 vm.solutionCreated = solutionCreate;
 
-// function toggleCorrect() {
-//   const index = vm.solution.correct;
-//   if(index === 'true') {
-//     vm.event.attendee_ids.splice(index, 1);
-//     vm.event.attendees.splice(index, 1);
-//   } else {
-//     vm.event.attendee_ids.push(vm.currentUser.id);
-//     vm.event.attendees.push(vm.currentUser);
-//   }
-//   eventsUpdate();
-// }
-//
-// vm.toggleAttending = toggleAttending;
+
 
   function teachersDelete() {
     vm.teacher

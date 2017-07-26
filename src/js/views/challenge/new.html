@@ -17,7 +17,7 @@
 
       <label for="Topic">topic</label>
       <label ng-repeat="topic in challengesNew.topic">
-        <input type="checkbox" name="topic" checklist-model="challengesNew.challenge.topic.id" checklist-value="topic.id"> {{topic.name}}
+        <input type="radio" name="topic" ng-model="challengesNew.challenge.topic_id" ng-value="topic.id"> {{topic.name}}
       </label>
 
       <button>Create</button>

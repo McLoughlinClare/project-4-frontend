@@ -1,2 +1,11 @@
 <!DOCTYPE html>
-<h1>Student Solution Show</h1>
+
+<h1>{{ solutionsShow.solution.challenge.question }}</h1>
+<p>Your workings: {{solutionsShow.solution.student_comment}}</p>
+<h2> Your Answer: {{ solutionsShow.solution.answer }}</h2>
+
+<p>Actual answer: {{solutionsShow.solution.challenge.answer}}</p>
+<p>Teacher feedback: {{solutionsShow.solution.teacher_comment}}</p>
+
+<button ui-sref="solutionsEdit({id: solutionsShow.solution.id})" ng-if="main.isAuthenticated() && main.currentUser.id === solutionsShow.solution.student.id">Edit</button>
+<button ng-click="solutionsShow.delete()" ng-if="main.isAuthenticated() && main.currentUser.id === solutionsShow.solution.student.id">Delete</button>

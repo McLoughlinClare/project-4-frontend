@@ -13,16 +13,25 @@
   <!-- single instance from the array in the actual array -->
   <!-- inside the loop always print the entire single instance first -->
   <li ng-repeat="student in teachersShow.teacher.students">
+      <button ng-show="teachersShow.showingUnmarked" ng-click="teachersShow.toggleQuestions()">Show marked</button>
+      <button ng-hide="teachersShow.showingUnmarked" ng-click="teachersShow.toggleQuestions()">Show unmarked</button>
       <p><em>{{ student.first_name }} {{ student.last_name }}</em></p>
 
         <table>
-          <tr ng-repeat="solution in student.solutions">
+          <tr ng-repeat="solution in student.solutions" ng-show="teachersShow.showSolution(solution)">
             <td>{{ solution.challenge.question}}</td>
+            <td>{{ solution.student_comment}}</td>
             <td>{{ solution.answer }}</td>
             <td>{{solution.challenge.answer}}</td>
             <td>{{solution.correct}}</td>
-            <td> <button ng-submit="solution.correct=true">Correct</button> </td>
-            <td> <button ng-submit="solution.correct=false">Needs more work</button> </td>
+            <td> <button ng-click="teachersShow.correctMarking(solution)">Correct</button> </td>
+            <td> <button ng-click="teachersShow.incorrectMarking(solution)">Needs more work</button> </td>
+            <td>
+              <form ng-submit="teachersShow.addComment(solution)">
+                <textarea type="text" name="body" ng-model="solution.teacher_comment"></textarea>
+                <button>Comment</button>
+              </form>
+            </td>
           </tr>
         </table>
 

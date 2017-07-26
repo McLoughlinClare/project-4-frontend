@@ -22,6 +22,7 @@
         <li ng-if="main.isAuthenticated()"><a ui-sref="topicIndex" ui-sref-active="active">Topics</a></li>
         <li ng-if="main.role === 'student'" ><a ui-sref="studentsShow({id: main.currentUser.id})" ui-sref-active="active">Profile</a></li>
         <li ng-if="main.role === 'teacher'" ><a ui-sref="teachersShow({id: main.currentUser.id})" ui-sref-active="active">Profile</a></li>
+        <li ng-if="main.role === 'teacher'" ><a ui-sref="challengesNew" ui-sref-active="active">Add new Questions</a></li>
         <li ng-if="main.isAuthenticated()"><a ng-click="main.logout()" href="#">Logout</a></li>
       </ul>
     </nav>
