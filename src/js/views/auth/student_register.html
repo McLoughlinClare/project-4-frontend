@@ -23,6 +23,16 @@
         <input type="number" ng-model="auth.student.school_id">
       </div>
 
+      <select name="school" id="school" type="number" ng-model="auth.student.school_id">
+          <option value="1">Cheney School</option>
+          <option value="2">Evelyn Grace Academy</option>
+          <option value="3">Sir Simon Milton UTC</option>
+      </select>
+
+      <!-- <div>
+      <select ng-model="auth.student.school_id" ng-options="School in auth"></select>
+      </div> -->
+
 
       <div>
         <label>Password</label>

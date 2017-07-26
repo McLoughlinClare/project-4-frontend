@@ -12,7 +12,20 @@
 <ul>
   <!-- single instance from the array in the actual array -->
   <!-- inside the loop always print the entire single instance first -->
-  <li ng-repeat="student in teacherShow.teacher.students">
+  <li ng-repeat="student in teachersShow.teacher.students">
       <p><em>{{ student.first_name }} {{ student.last_name }}</em></p>
+
+        <table>
+          <tr ng-repeat="solution in student.solutions">
+            <td>{{ solution.challenge.question}}</td>
+            <td>{{ solution.answer }}</td>
+            <td>{{solution.challenge.answer}}</td>
+            <td>{{solution.correct}}</td>
+            <td> <button ng-submit="solution.correct=true">Correct</button> </td>
+            <td> <button ng-submit="solution.correct=false">Needs more work</button> </td>
+          </tr>
+        </table>
+
+
   </li>
 </ul>

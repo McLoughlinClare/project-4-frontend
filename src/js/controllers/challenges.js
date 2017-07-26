@@ -12,11 +12,12 @@ function ChallengesIndexCtrl(Challenge) {
   vm.all = Challenge.query();
 }
 
-ChallengesNewCtrl.$inject = ['Challenge', 'Student', '$state'];
-function ChallengesNewCtrl(Challenge, Student, $state) {
+ChallengesNewCtrl.$inject = ['Challenge', 'Topic', 'Student', '$state'];
+function ChallengesNewCtrl(Challenge, Topic, Student, $state) {
   const vm = this;
   vm.challenge = {};
   vm.users = Student.query();
+  vm.topic = Topic.query();
 
   function challengesCreate() {
     Challenge
@@ -44,7 +45,7 @@ function ChallengesShowCtrl(Challenge, Topic, Solution, Student, $stateParams, $
     Solution
       .save(vm.solution)
       .$promise
-      .then(() => $state.go('home'));
+      .then(() => $state.go('challengesShow', { id: vm.challenge.id+1}));
   }
 
 vm.solutionCreated = solutionCreate;

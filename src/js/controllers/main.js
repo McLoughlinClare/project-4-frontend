@@ -2,8 +2,8 @@ angular
   .module('physicsWars')
   .controller('MainCtrl', MainCtrl);
 
-MainCtrl.$inject = ['$rootScope', '$state', '$auth', '$transitions'];
-function MainCtrl($rootScope, $state, $auth, $transitions) {
+MainCtrl.$inject = ['Teacher', 'Student', '$rootScope', '$state', '$auth', '$transitions', '$stateParams'];
+function MainCtrl(Teacher, Student, $rootScope, $state, $auth, $transitions, $stateParams) {
   const vm = this;
   vm.isAuthenticated = $auth.isAuthenticated;
 
@@ -19,6 +19,12 @@ function MainCtrl($rootScope, $state, $auth, $transitions) {
 
 
   $transitions.onSuccess({}, (transition) => {
+    vm.role = window.localStorage.getItem('role');
+    if($auth.isAuthenticated()) {
+      if(vm.role === 'teacher') vm.currentUser = Teacher.get($auth.getPayload());
+      if(vm.role === 'student') vm.currentUser = Student.get($auth.getPayload());
+    }
+
     if((!$auth.isAuthenticated() && protectedStates.includes(transition.$to().name))) {
       vm.message = 'You must be logged in to access this page.';
       return $state.go('login');
@@ -26,7 +32,7 @@ function MainCtrl($rootScope, $state, $auth, $transitions) {
 
     if(vm.stateHasChanged) vm.message = null;
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
-    if($auth.getPayload()) vm.currentUser = $auth.getPayload();
+
     vm.pageName = transition.$to().name;
   });
 

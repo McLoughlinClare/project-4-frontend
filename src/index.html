@@ -19,12 +19,14 @@
         <li ng-if="!main.isAuthenticated()"><a ui-sref="register" ui-sref-active="active">Student Register</a></li>
         <li ng-if="!main.isAuthenticated()"><a ui-sref="teacherlogin" ui-sref-active="active">Teacher Login</a></li>
         <li ng-if="!main.isAuthenticated()"><a ui-sref="teacherregister" ui-sref-active="active">Teacher Register</a></li>
+        <li ng-if="main.isAuthenticated()"><a ui-sref="topicIndex" ui-sref-active="active">Topics</a></li>
+        <li ng-if="main.role === 'student'" ><a ui-sref="studentsShow({id: main.currentUser.id})" ui-sref-active="active">Profile</a></li>
+        <li ng-if="main.role === 'teacher'" ><a ui-sref="teachersShow({id: main.currentUser.id})" ui-sref-active="active">Profile</a></li>
         <li ng-if="main.isAuthenticated()"><a ng-click="main.logout()" href="#">Logout</a></li>
       </ul>
     </nav>
   </header>
   <body ng-controller="MainCtrl as main">
-    {{ main.users }}
 
       <main ui-view></main>
 

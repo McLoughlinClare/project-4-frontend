@@ -12,22 +12,22 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'js/views/statics/home.html',
       controller: 'SchoolsLeagueCtrl as schoolsLeague'
     })
-    .state('studentShow', {
-      url: '/student/:id',
+    .state('studentsShow', {
+      url: '/students/:id',
       templateUrl: 'js/views/student/profile.html',
       controller: 'StudentsShowCtrl as studentShow'
     })
-    .state('studentEdit', {
-      url: '/student/:id/edit',
-      templateUrl: 'js/views/student/edit.html',
-      controller: 'StudentEditCtrl as studentEdit'
-    })
-  .state('teacherShow', {
+    // .state('studentsEdit', {
+    //   url: '/students/:id/edit',
+    //   templateUrl: 'js/views/student/edit.html',
+    //   controller: 'StudentEditCtrl as studentEdit'
+    // })
+  .state('teachersShow', {
     url: '/teachers/:id',
     templateUrl: 'js/views/teacher/profile.html',
-    controller: 'TeachersShowCtrl as teacherShow'
+    controller: 'TeachersShowCtrl as teachersShow'
     })
-    .state('teacherEdit', {
+    .state('teachersEdit', {
       url: '/teachers/:id/edit',
       templateUrl: 'js/views/teacher/edit.html',
       controller: 'TeachersEditCtrl as teacherEdit'
@@ -47,22 +47,22 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'js/views/solutions/new.html',
       controller: 'SolutionsNewCtrl as solutionsNew'
     })
-      .state('challengeIndex', {
+      .state('challengesIndex', {
         url: '/challenges',
         templateUrl: 'js/views/challenge/index.html',
         controller: 'ChallengesIndexCtrl as challengesIndex'
       })
-      .state('challengeNew', {
+      .state('challengesNew', {
         url: '/challenges/new',
         templateUrl: 'js/views/challenge/new.html',
         controller: 'ChallengesNewCtrl as challengesNew'
       })
-      .state('challengeShow', {
+      .state('challengesShow', {
         url: '/challenges/:id',
         templateUrl: 'js/views/challenge/show.html',
         controller: 'ChallengesShowCtrl as challengesShow'
       })
-      .state('challengeEdit', {
+      .state('challengesEdit', {
         url: '/challenges/:id/edit',
         templateUrl: 'js/views/challenge/edit.html',
         controller: 'ChallengesEditCtrl as challengesEdit'

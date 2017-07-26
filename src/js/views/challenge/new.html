@@ -1,3 +1,28 @@
 <!DOCTYPE html>
 
 <h1>challenge new</h1>
+
+
+<div class="row">
+  <div class="col-md-6">
+    <form ng-submit="challengesNew.create()">
+      <label for="questions">Question Title</label>
+      <input type="text" id="question" name="question" ng-model="challengesNew.challenge.question">
+
+      <label for="questions">Question </label>
+      <input type="text" id="title" name="title" ng-model="challengesNew.challenge.title">
+
+      <label for="answer">Answer</label>
+      <input type="text" id="answer" name="answer" ng-model="challengesNew.challenge.answer">
+
+      <label for="Topic">topic</label>
+      <label ng-repeat="topic in challengesNew.topic">
+        <input type="checkbox" name="topic" checklist-model="challengesNew.challenge.topic.id" checklist-value="topic.id"> {{topic.name}}
+      </label>
+
+      <button>Create</button>
+    </form>
+  </div>
+</div>
+
+{{ challengesNew.challenge }}
