@@ -1,12 +1,24 @@
 <!DOCTYPE html>
-<h1>topic index</h1>
 
 
+<div class = "container">
+
+<div class="topicIndex">
 <ul>
-  <li ng-repeat="topic in topicsIndex.all">
-    <a ui-sref="topicsShow({id: topic.id})">
-    <p><em>{{ topic.name}}</em></p>
-    <img ng-src="http://localhost:3000/assets/{{ topic.icon }}" alt="">
-  </a>
-  </li>
-</ul>
+    <li ng-repeat="topic in topicsIndex.all">
+      <div class="col-md-4">
+        <div class="topicChoice">
+         <div class="row justify-content-center">
+          <a ui-sref="topicsShow({id: topic.id})">
+            <p>{{ topic.name}}</p>
+            <div class="indexPicture">
+              <img ng-src="http://localhost:3000/assets/{{ topic.icon }}" alt="">
+            </div>
+          </a>
+        </div>
+      </div>
+      </div>
+    </li>
+  </ul>
+</div>
+</div>

@@ -11,8 +11,8 @@ angular
   }
 
 
-TopicsShowCtrl.$inject = ['Topic', 'Challenge', '$stateParams', '$state'];
-function TopicsShowCtrl(Topic, Challenge,  $stateParams, $state) {
+TopicsShowCtrl.$inject = ['Topic', '$stateParams', '$state'];
+function TopicsShowCtrl(Topic, $stateParams, $state) {
   const vm = this;
 
   vm.all = Topic.query();

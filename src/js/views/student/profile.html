@@ -1,11 +1,21 @@
 <!DOCTYPE html>
+<div id="studentProfile">
+  <div class="studentInfo">
+    <h1>{{studentShow.student.first_name}} {{studentShow.student.last_name}}</h1>
+<!-- <h3>{{studentShow.student.school.name}}</h3> -->
+      <div class="studentCorrect">
+        <h3>Your Solutions</h3>
+        <p>So far you have {{ studentShow.correctAnswers.length }} correct answers </p>
+      </div>
+    </div>
 
-<h1>{{studentShow.student.first_name}} {{studentShow.student.last_name}}</h1>
-<h4>{{studentShow.student.school.name}}</h4>
-
-<h2>Your Solutions</h2>
-<p> So far you have {{ studentShow.correctAnswers.length }} correct answers </p>
 <table>
+    <tr>
+      <th>Question</th>
+      <th>Your Answer</th>
+      <th>Correct</th>
+      <th>Teacher's comments</th>
+    </tr>
   <tr ng-repeat="solution in studentShow.student.solutions">
     <td><a ui-sref="solutionsShow({id: solution.id})">{{ solution.challenge.question }}</a></td>
     <td>{{ solution.answer }}</td>
@@ -13,3 +23,5 @@
     <td>{{ solution.teacher_comment }}</td>
   </tr>
 </table>
+
+</div>
