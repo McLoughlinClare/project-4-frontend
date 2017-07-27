@@ -4,6 +4,7 @@
 @import 'variables';
 @import 'extends';
 @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500');
+@import url('href="https://fontlibrary.org/face/woodwarrior" type="text/css"/>')
 
 body {
   font-family: 'Quicksand', sans-serif;
@@ -75,6 +76,7 @@ header {
         display: inline-block;
         &:first-child {
           font-size: 35px;
+         font-family: 'WoodwarriorRegular'; 
         }
         &:not(:first-child) {
           float: right;
