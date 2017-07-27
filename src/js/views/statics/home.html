@@ -2,7 +2,7 @@
 <h1>Homepage</h1>
 
 
-<table>
+<table class="leagueTable">
   <tr ng-repeat="school in schoolsLeague.all | orderBy:'-average_correct'">
     <td>{{ school.name }}</td>
     <td>{{ school.total_correct_answers}} </td>
