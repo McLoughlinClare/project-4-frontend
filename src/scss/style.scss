@@ -274,7 +274,7 @@ table{
     }
   }
 //question page for students
-  #challengeShow{
+  .challengeShow{
     p {
       font-size: 30px;
       text-align: center;
@@ -362,4 +362,27 @@ table{
     @extend .button--pink;
     width: 90%;
     margin-left: 5%;
+}
+
+.profile{
+  p {
+    font-size: 20px;
+  }
+}
+
+.small{
+  width: 30% ;
+}
+
+#solutionShow{
+  margin: 10% 20%;
+  text-align: center;
+  p{
+    font-size: 20px;
+  }
+  .solutionQuestion{
+    font-size: 30px;
+    font-weight: bold;
+    padding-bottom: 5%;
+  }
 }

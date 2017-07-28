@@ -42,13 +42,14 @@ function SolutionsEditCtrl(Solution, Student, $stateParams, $state) {
 
   vm.users = Student.query();
 
-  function solutionsUpdate() {
-    solution.correct = nil;
+  function solutionUpdate() {
+    console.log('updating');
+    vm.solution.correct = null;
     Solution
       .update({ id: vm.solution.id }, vm.solution)
       .$promise
       .then(() => $state.go('solutionsShow', { id: vm.solution.id }));
   }
 
-  vm.update = solutionsUpdate;
+  vm.solutionUpdate = solutionUpdate;
 }

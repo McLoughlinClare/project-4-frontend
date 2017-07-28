@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 
+<div class="challengeShow">
 
-
-<h1>{{ solutionsEdit.solution.challenge.question }}</h1>
+<p>{{ solutionsEdit.solution.challenge.question }}</p>
 <form ng-submit="solutionsEdit.solutionUpdate()">
 
 <label for="student_comment">Your Workings</label>
@@ -12,5 +12,7 @@
 <label for="answer">Your Answer</label>
 <input type="text" id="answer" name="answer" ng-model="solutionsEdit.solution.answer">
 
-<button>Submit</button>
+<button button--pink>Submit</button>
 </form>
+
+</div>
