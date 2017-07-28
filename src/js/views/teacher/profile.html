@@ -1,40 +1,50 @@
 <!DOCTYPE html>
+<div class = "profile">
+
+  <h1>{{teacherShow.teacher.name}}</h1>
+  <h2>{{teacherShow.teacher.school.name}}</h2>
 
 
-<h1>{{teacherShow.teacher.name}}</h1>
-<h2>{{teacherShow.teacher.school.name}}</h2>
+
+  <h3>Your Students</h3>
 
 
-
-<h3>Your Students</h3>
-
-
-<ul>
+  <ul>
   <!-- single instance from the array in the actual array -->
   <!-- inside the loop always print the entire single instance first -->
-  <li ng-repeat="student in teachersShow.teacher.students">
-      <button ng-show="teachersShow.showingUnmarked" ng-click="teachersShow.toggleQuestions()">Show marked</button>
-      <button ng-hide="teachersShow.showingUnmarked" ng-click="teachersShow.toggleQuestions()">Show unmarked</button>
-      <p><em>{{ student.first_name }} {{ student.last_name }}</em></p>
+    <li ng-repeat="student in teachersShow.teacher.students">
+        <button class="pinkButton" ng-show="teachersShow.showingUnmarked" ng-click="teachersShow.toggleQuestions()">Show marked</button>
+        <button  class="blueButton" ng-hide="teachersShow.showingUnmarked" ng-click="teachersShow.toggleQuestions()">Show unmarked</button>
+        <p><em>{{ student.first_name }} {{ student.last_name }}</em></p>
 
-        <table>
-          <tr ng-repeat="solution in student.solutions" ng-show="teachersShow.showSolution(solution)">
-            <td>{{ solution.challenge.question}}</td>
-            <td>{{ solution.student_comment}}</td>
-            <td>{{ solution.answer }}</td>
-            <td>{{solution.challenge.answer}}</td>
-            <td>{{solution.correct}}</td>
-            <td> <button ng-click="teachersShow.correctMarking(solution)">Correct</button> </td>
-            <td> <button ng-click="teachersShow.incorrectMarking(solution)">Needs more work</button> </td>
-            <td>
-              <form ng-submit="teachersShow.addComment(solution)">
-                <textarea type="text" name="body" ng-model="solution.teacher_comment"></textarea>
-                <button>Comment</button>
-              </form>
-            </td>
-          </tr>
-        </table>
+          <table>
+            <tr>
+              <th>Question</th>
+              <th>Workings</th>
+              <th>Student answer</th>
+              <th>answer</th>
+              <th>marking</th>
+              <th>teacher Comment</th>
+            </tr>
+            <tr ng-repeat="solution in student.solutions" ng-show="teachersShow.showSolution(solution)">
+              <td>{{ solution.challenge.question}}</td>
+              <td>{{ solution.student_comment}}</td>
+              <td>{{ solution.answer }}</td>
+              <td>{{solution.challenge.answer}}</td>
+              <td>{{solution.correct}}</td>
+              <td> <button class="blueButton" ng-click="teachersShow.correctMarking(solution)">Correct</button> 
+             <button class="pinkButton" ng-click="teachersShow.incorrectMarking(solution)">Needs more work</button> </td>
+              <td>
+                <form ng-submit="teachersShow.addComment(solution)">
+                  <textarea type="text" name="body" ng-model="solution.teacher_comment"></textarea>
+                  <button>Comment</button>
+                </form>
+              </td>
+            </tr>
+          </table>
 
 
-  </li>
-</ul>
+        </li>
+      </ul>
+
+</div>

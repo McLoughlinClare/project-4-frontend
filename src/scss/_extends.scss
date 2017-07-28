@@ -45,6 +45,9 @@
 .button--pink {
   border-color: $brand-primary;
   background-color: $brand-primary;
+  width: 25%;
+  // margin-left: 37%;
+  margin-top: 3%;
   &:hover, &:focus {
     border-color: lighten($brand-primary, 5%);
     background-color: lighten($brand-primary, 5%);

@@ -1,19 +1,21 @@
 <!DOCTYPE html>
+<div class="backgroundpicture">
+  <div class="register login">
+    <h1>Student Login</h1>
+    <div class="row">
+      <div class="col-md-12">
+        <form ng-submit="auth.login()">
+          <div>
+            <input type="text" placeholder="Email" ng-model="auth.credentials.email">
+          </div>
 
-<div class="row">
-  <div class="col-md-6">
-    <form ng-submit="auth.login()">
-      <div>
-        <label>Email</label>
-        <input type="text" ng-model="auth.credentials.email">
+          <div>
+            <input type="password" placeholder="password" ng-model="auth.credentials.password">
+          </div>
+
+          <button>Login</button>
+        </form>
       </div>
-
-      <div>
-        <label>Password</label>
-        <input type="password" ng-model="auth.credentials.password">
-      </div>
-
-      <button>Login</button>
-    </form>
+    </div>
   </div>
 </div>

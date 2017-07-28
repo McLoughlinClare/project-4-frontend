@@ -1,50 +1,41 @@
 <!DOCTYPE html>
-
+<div class="backgroundpicture">
+<div class="register">
+  <h1>Student register</h1>
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-12">
     <form ng-submit="auth.register()">
       <div>
-        <label>Email</label>
-        <input type="text" ng-model="auth.student.email">
+        <input type="text" placeholder="Email" ng-model="auth.student.email">
       </div>
 
       <div>
-        <label>First Name</label>
-        <input type="text" ng-model="auth.student.first_name">
+        <input type="text" placeholder="First Name" ng-model="auth.student.first_name">
       </div>
 
       <div>
-        <label>Last Name</label>
-        <input type="text" ng-model="auth.student.last_name">
+        <input type="text" placeholder="Last Name" ng-model="auth.student.last_name">
       </div>
-
-      <div>
-        <label>School</label>
-        <input type="number" ng-model="auth.student.school_id">
-      </div>
-
-      <select name="school" id="school" type="number" ng-model="auth.student.school_id">
-          <option value="1">Cheney School</option>
-          <option value="2">Evelyn Grace Academy</option>
-          <option value="3">Sir Simon Milton UTC</option>
-      </select>
-
-      <!-- <div>
-      <select ng-model="auth.student.school_id" ng-options="School in auth"></select>
-      </div> -->
 
 
       <div>
-        <label>Password</label>
-        <input type="password" ng-model="auth.student.password">
+        <select ng-model="auth.student.school" ng-options="school.name for school in auth.school" >
+          <option value="" selected="selected">Select School </option>
+        </select>
+      </div>
+
+
+      <div>
+        <input type="password" placeholder="password" ng-model="auth.student.password">
       </div>
 
       <div>
-        <label>Password Confirmation</label>
-        <input type="password" ng-model="auth.student.password_confirmation">
+        <input type="password" placeholder="Password Confirmation" ng-model="auth.student.password_confirmation">
       </div>
 
       <button>Register</button>
     </form>
   </div>
+</div>
+</div>
 </div>

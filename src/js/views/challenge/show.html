@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 
+<div id="challengeShow">
 
-<h1>{{ challengesShow.challenge.question }}</h1>
+
+<p>{{ challengesShow.challenge.question }}</p>
 <form ng-submit="challengesShow.solutionCreated()">
 
-<label for="student_comment">Your Workings</label>
-<input type="text" id="workings" name="workings" ng-model="challengesShow.solution.student_comment">
+<div class="workings">
+  <label for="student_comment">Your Workings</label>
+  <input type="textarea" id="workings" name="workings" ng-model="challengesShow.solution.student_comment">
+</div>
 
+<div class="answer">
+  <label for="answer">Your Answer</label>
+  <input type="text" id="answer" name="answer" ng-model="challengesShow.solution.answer">
+</div>
 
-<label for="answer">Your Answer</label>
-<input type="text" id="answer" name="answer" ng-model="challengesShow.solution.answer">
-
-<button>Submit</button>
+<button class="button--pink">Submit</button>
 </form>
+</div>

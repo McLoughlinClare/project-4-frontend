@@ -1,11 +1,37 @@
 <!DOCTYPE html>
-<h1>Homepage</h1>
 
+<div id="Homepage">
+  <h1>How it works</h1>
+  <div class="row">
+    <div class="welcomeStep stepOne col-md-3">
+      <p>Student answers questions on a topic of their choice.</p>
+      <img src="./images/002-student.png" alt="">
+    </div>
+    <div class="welcomeStep stepTwo col-md-3">
+      <p>Teacher logs on and marks the students work.</p>
+      <img src=".\images\003-studying.png" alt="">
+    </div>
+    <div class="welcomeStep stepThree col-md-3">
+      <p>Student sees teacher's feedback and makes any changes</p>
+      <img src="/images/001-chat.png" alt="">
+    </div>
+    <div class="welcomeStep stepFour col-md-3">
+      <p>Scores counted for each school towards the physics league!</p>
+      <img src="\images\004-computer.png" alt="">
+    </div>
+</div>
 
-<table class="leagueTable">
-  <tr ng-repeat="school in schoolsLeague.all | orderBy:'-average_correct'">
-    <td>{{ school.name }}</td>
-    <td>{{ school.total_correct_answers}} </td>
-    <td>{{ school.average_correct}}</td>
-  </tr>
-</table>
+<div class="leagueTable">
+  <h1>2017/2018 League Table</h1>
+  <div class="leagueTableGrid">
+  <table>
+    <tr ng-repeat="school in schoolsLeague.all | orderBy:'-average_correct'">
+      <td><p>{{ school.name }}</p></td>
+      <td><p>{{ school.total_correct_answers}}</p> </td>
+      <td><p>{{ school.average_correct}}</p></td>
+    </tr>
+    </table>
+  </div>
+  </div>
+</div>
+</p>

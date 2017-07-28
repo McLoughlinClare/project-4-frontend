@@ -11,7 +11,7 @@ function AuthCtrl(School, $auth, $state) {
   vm.credentials = {};
   vm.student.role = 'student';
   vm.credentials.role = 'student';
-  vm.all = School.query();
+  vm.school = School.query();
 
   function register() {
     $auth.signup(vm.student)
@@ -39,7 +39,7 @@ function TeacherAuthCtrl(School, $auth, $state) {
   vm.teacher.role = 'teacher';
   vm.credentials = {};
   vm.credentials.role = 'teacher';
-  vm.all = School.query();
+  vm.school = School.query();
 
   function register() {
     $auth.signup(vm.teacher)

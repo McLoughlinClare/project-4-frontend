@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <div id="topicShow">
 
-<h1><em>{{ topicsShow.topic.name }}</em></h1>
+<h1>{{ topicsShow.topic.name }}</h1>
 
 <ul>
-  <li ng-repeat="topic in topicsShow.topic.challenges">
-    <div class="col-md-2 topicTeaser">
-      <a ui-sref="challengesShow ({id: topic.id})">
-        <p><em>{{ topic.title }} </em></p>
+  <li ng-repeat="challenge in topicsShow.topic.challenges">
+    <div class="col-md-2 col-sm-6  topicTeaser">
+      <a ui-sref="challengesShow ({id: challenge.id})" ng-class="{'answered': topicsShow.currentUser.$resolved && topicsShow.isAnswered(challenge)}">
+        <p><em>{{ challenge.title }} </em></p>
       </a>
     </div>
   </li>

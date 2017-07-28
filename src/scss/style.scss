@@ -65,7 +65,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  margin-bottom: 10px;
+  // margin-bottom: 10px;
   nav {
     height: 60px;
     background-color: $brand-secondary;
@@ -117,17 +117,9 @@ header {
 
 
 form {
-  label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 12px;
-  }
-  input, textarea {
+  input, textarea, select {
     margin-bottom: 20px;
-    width: 100%;
+    width: 75%;
     border: 1px solid $brand-secondary;
     padding: 5px 10px;
     font-size: 14px;
@@ -136,9 +128,6 @@ form {
       border-width: 2px;
       padding: 4px 9px;
     }
-  }
-  input[type="checkbox"] {
-    width: auto;
   }
   textarea {
     resize: none;
@@ -153,9 +142,19 @@ form {
   button {
     @extend .button;
     @extend .button--blue;
-    width: 100%;
+    width: 75%;
+  }
+  #workings{
+    width: 50%;
+    height: 200px;
+    margin: 0 25%;
+  }
+  #answer{
+    width: 25%;
+    margin: 1% 37%;
   }
 }
+
 //tables (school league, student and teacher profiles)
 table{
   width: 90%;
@@ -177,10 +176,10 @@ table{
     }
     tr{
       &:nth-child(odd) {
-      background-color: $brand-four;
+      background-color: lighten($brand-secondary, 50%);
     }
     &:nth-child(even) {
-      background-color: $brand-five;
+      background-color: lighten($brand-secondary, 75%);;
     }
     &:hover{
         background-color: $brand-three;
@@ -201,10 +200,8 @@ table{
       font-size: 26px;
       height: 350px;
       position: relative;
-      color: $brand-primary;
-      border: solid 5px;
-      border-radius: 5%;
-      border-image:   linear-gradient(to right, yellow 25%, #19bfff 75%) 5;
+      color: black;
+      border: solid 3px $brand-primary;
       margin-top: 20px;
       margin: 5%;
       &:hover{
@@ -230,6 +227,12 @@ table{
   //topicsShow page
   #topicShow{
     overflow: hidden;
+    & h1{
+      text-align: center;
+      color: black;
+      padding-bottom: 5%;
+      padding-top: 2%;
+    }
     & ul{
       list-style-type: none;
       text-align: center;
@@ -238,11 +241,18 @@ table{
         font-size: 20px;
         position: relative;
         color: black;
-        border-radius: 5%;
         margin: 5%;
         border: 1px solid $brand-primary;
+        height: 100px;
+        & p {
+          padding-top: 15%;
+        }
         &:hover{
           background-color: $brand-three
+        }
+        &.answered {
+          background-color: $brand-primary;
+          color: white;
         }
       }
       .topicTeaser{
@@ -263,3 +273,93 @@ table{
       }
     }
   }
+//question page for students
+  #challengeShow{
+    p {
+      font-size: 30px;
+      text-align: center;
+    }
+    .workings{
+      label{
+        padding-left: 25%
+      }
+    }
+    .answer{
+      label{
+        padding-left: 37%;
+        padding-top: 1%;
+      }
+    }
+  }
+
+
+#Homepage{
+  h1{
+    padding-left: 3%;
+    padding-top: 1%;
+  }
+  .welcomeStep{
+    margin: 2%;
+    height: 200px;
+    width: 20%;
+    p{
+      text-align: center;
+      font-size: 18px;
+    }
+    img{
+      position: relative;
+      padding: 0 26%;
+    }
+    &:nth-child(1) {
+    margin-left: 4%;
+  }
+  }
+  .leagueTable{
+    h1{
+      padding-bottom: 2%;
+    }
+    .leagueTableGrid{
+      padding: 0 25%;
+      p{
+        font-size: 18px;
+        text-align: center;
+      }
+    }
+  }
+}
+.backgroundpicture{
+  overflow: hidden;
+  background-image: url("/images/physicsbackground.png");
+  background-repeat: repeat;
+  height: 100vh;
+}
+
+.register{
+  border: 2px solid $brand-primary;
+  width: 40%;
+  height: 450px;
+  margin: 15% 30%;
+  text-align: center;
+  background-color: white;
+  h1{
+    padding-bottom: 5%;
+  }
+}
+
+.login{
+  height: 300px;
+}
+
+.blueButton{
+    @extend .button;
+    @extend .button--blue;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.pinkButton{
+    @extend .button;
+    @extend .button--pink;
+    width: 90%;
+    margin-left: 5%;
+}
